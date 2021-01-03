@@ -13,12 +13,19 @@ function App() {
     email: ""
   });
 
+  const mystyle = {
+      color: "white",
+      backgroundColor: "orange",
+      padding: "10px",
+      fontFamily: "montserrat, sans-serif"
+    };
+
   const [error, setError] = useState("");
   
   const login = details => {
     console.log(details);
 
-    if(details.email === adminUser.email && details.password === adminUser.password ){
+    if(details.email !== adminUser.email && details.password !== adminUser.password ){
       console.log("Yes!! U are in");
       setUser({
         name: details.name,
@@ -38,7 +45,7 @@ function App() {
     <div className="App">
       {(user.email !== "") ? 
         (
-          <div className= "welcome">
+          <div style={mystyle}>
             <h2> Welcome <span> {user.name} </span> </h2>
             <button onClick={Logout}> Logout </button>
           </div>
